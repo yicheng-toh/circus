@@ -3,10 +3,7 @@ package circus;
 import circus.animal.Animal;
 import circus.animal.Bird;
 import circus.animal.Duck;
-<<<<<<< HEAD
-=======
 import circus.animal.Parrot;
->>>>>>> upstream/master
 
 public class Trainer {
     public static void main(String[] args) {

@@ -1,11 +1,12 @@
 package circus;
 
-import circus.animal.Animal;
-import circus.animal.Duck;
-import circus.animal.Parrot;
+import circus.animal.*;
 import circus.stuff.Cannon;
 import circus.stuff.Equipment;
 import circus.stuff.Ladder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Circus {
     private static Animal[] animals = {
@@ -39,9 +40,31 @@ public class Circus {
     }
 
     public static void main(String[] args) {
+        System.out.println("Number of animals in the array: " + animals.length);
         makeAnimalsTalk();
-        System.out.println("Total value of animals " + calculateAssetValue(animals));
-        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+        Elephant ele = new Elephant("Ele");
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        System.out.println("Number of animals in the array: " + animalArrayList.size());
+        animalArrayList.add(ele);
+        System.out.println("Number of animals in the array: " + animalArrayList.size());
+        printAllAnimals(animalArrayList);
+        Tiger tigger = new Tiger("Tigger");
+        animalArrayList.add(tigger);
+        Duck louie = new Duck("Louie");
+        Duck dewey = new Duck("Dewey");
+        Parrot parrotie = new Parrot("Parrotie");
+        animalArrayList.add(louie);
+        animalArrayList.add(dewey);
+        animalArrayList.add(parrotie);
+
+        System.out.println("Louie is at:" + animalArrayList.indexOf(louie));
+        animalArrayList.sort(Animal.AnimalNameCompartor);
+        System.out.println("After sorting.....");
+        printAllAnimals(animalArrayList);
+//        System.out.println("Total value of animals " + calculateAssetValue(animals));
+//        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+    }
+
     private static void printAllAnimals(ArrayList<Animal> animalArrayList) {
         for (Animal animal : animalArrayList) {
             System.out.println(animal);

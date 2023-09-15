@@ -54,9 +54,9 @@ public class Circus {
         animalArrayList.add(new Tiger("Sherkhan"));
         System.out.println("Number of animals: " + animalArrayList.size());
 
-        animalArrayList.add(new Parrot());
+        animalArrayList.add(new Parrot("parrot0"));
 
-        Duck louie = new Duck();
+        Duck louie = new Duck("duck0");
         animalArrayList.add(louie);
         Elephant strongOne = new Elephant("StrongOne");
         animalArrayList.add(strongOne);
@@ -64,15 +64,18 @@ public class Circus {
         printAllAnimals(animalArrayList);
 
         Cage<Duck> duckCage = new Cage<>();
-        Duck duck = new Duck();
+        Duck duck = new Duck("duckie");
         duckCage.lockUp(duck);
-        Parrot parrot = new Parrot();
+        Parrot parrot = new Parrot("parrotie");
         Cage<Parrot> parrotCage = new Cage<>();
         parrotCage.lockUp(parrot);
+
+        Cage<Elephant> elephantCage = new Cage<>();
 
         ArrayList<Cage> cages = new ArrayList<>();
         cages.add(duckCage);
         cages.add(parrotCage);
+        cages.add(elephantCage);
 
         for(Cage c: cages) {
             c.release();
